@@ -32,6 +32,11 @@ SYSTEM_PROMPT = """あなたはコーヒーの専門家です。
 回答はスマホで読みやすいよう、改行を適切に使ってください。"""
 
 
+@app.route("/")
+def health():
+    return "Coffee Bot OK", 200
+
+
 @app.route("/webhook", methods=["POST"])
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
